@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>vue</title>
+</head>
+
+<body>
+    <div id="app">
+        <nav>
+            <div class="logo">
+                <img src="./assets/img/logo_vue.svg" alt="logo du site">
+            </div>
+            <ul>
+                <li class="bi bi-binoculars-fill" id="home"></li>
+                <li class="bi bi-heart-fill" id="likes"></li>
+                <li class="bi bi-cart-fill" id="basket"></li>
+            </ul>
+        </nav>
+        <main>
+            <h1>{{ message }}</h1>
+        </main>
+    </div>
+</body>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script> -->
+<script src="assets/js/app.js"></script>
+
+</html>
