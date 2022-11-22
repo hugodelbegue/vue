@@ -14,21 +14,69 @@
     <div id="app">
         <nav>
             <div class="logo">
-                <img src="./assets/img/logo_vue.svg" alt="logo du site">
+                <router-link to="/">
+                    <img src="./assets/img/logo_vue.svg" alt="logo du site">
+                </router-link>
             </div>
             <ul>
-                <li class="bi bi-binoculars-fill" id="home"></li>
-                <li class="bi bi-heart-fill" id="likes"></li>
-                <li class="bi bi-cart-fill" id="basket"></li>
+                <li id="main">
+                    <router-link to="/main">
+                        <i class="bi bi-binoculars-fill"></i>
+                    </router-link>
+                </li>
+                <li id="likes">
+                    <router-link to="/likes">
+                        <i class="bi bi-heart-fill"></i>
+                    </router-link>
+                </li>
+                <li id="basket">
+                    <router-link to="/basket"><i class="bi bi-cart-fill"></i>
+                    </router-link>
+                </li>
             </ul>
         </nav>
         <main>
-            <h1>{{ message }}</h1>
+            <div class="main__description">
+                <h1>{{ message }}</h1>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus culpa cum vero aliquam cupiditate
+                    a dolorum animi atque? Amet obcaecati quis inventore distinctio incidunt possimus nisi quas quam
+                    soluta placeat rerum iusto aut fugit praesentium, asperiores aspernatur vel enim dolores libero
+                    pariatur ex, veniam repudiandae. Suscipit iusto aperiam quis eum!</p>
+            </div>
+            <router-view></router-view>
         </main>
     </div>
+
+    <script type="text/x-template" id="home">
+   <div class="home__container">
+    <h1>Photos</h1>
+        <!-- search bar -->
+
+        <!-- card -->
+        <div class="card__wrap__container">
+            <div class="card__container">
+                <div v-for="items in itemsList" class="card">
+                    <img v-bind:src="items.img" alt="">
+                    <div class="fadedbox">
+                        <div class="card__description">
+                            <p>{{ items.description }}</p>
+                        </div>
+                        <div class="card__points">
+                            <span>{{ items.points }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
 </body>
+
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="https://unpkg.com/vue-router@4.0.15/dist/vue-router.global.js"></script>
 <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script> -->
+<script src="assets/js/script.js"></script>
 <script src="assets/js/app.js"></script>
 
 </html>
