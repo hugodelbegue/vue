@@ -14,3 +14,4 @@ const data = [
     { id: 12, description: 'Herisson des Forets', point: 11, img: './assets/img/herisson.jpg' },
     { id: 13, description: 'Tortue de Mer', point: 9, img: './assets/img/tortue.jpg' },
 ]
+

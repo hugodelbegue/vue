@@ -58,11 +58,13 @@
                 <div v-for="items in itemsList" class="card">
                     <img v-bind:src="items.img" alt="">
                     <div class="fadedbox">
-                        <div class="card__description">
-                            <p>{{ items.description }}</p>
-                        </div>
-                        <div class="card__points">
-                            <span>{{ items.points }}</span>
+                        <div class="card__text show">
+                            <div class="card__description">
+                                <p>{{ items.description }}</p>
+                            </div>
+                            <div class="card__points">
+                                <span>{{ items.points }} pts</span>
+                            </div>
                         </div>
                     </div>
                 </div>
