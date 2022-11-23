@@ -4,3 +4,24 @@
   align-items: center;
   text-align: center;
 }
+
+@mixin transition($target, $time, $function) {
+  -webkit-transition: $target $time $function;
+  -moz-transition: $target $time $function;
+  -o-transition: $target $time $function;
+  transition: $target $time $function;
+}
+
+@mixin scale($scale) {
+  -webkit-transform: scale($scale);
+  -moz-transform: scale($scale);
+  -o-transform: scale($scale);
+  transform: scale($scale);
+}
+
+@mixin translateY($translateY) {
+  -webkit-transform: translateY($translateY);
+  -moz-transform: translateY($translateY);
+  -o-transform: translateY($translateY);
+  transform: translateY($translateY);
+}

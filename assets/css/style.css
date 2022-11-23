@@ -92,8 +92,11 @@ nav ul a:hover {
   color: rgba(1, 1, 1, 0.6);
 }
 nav ul i::before {
+  -webkit-transition: color 0.25s ease;
+  -moz-transition: color 0.25s ease;
+  -o-transition: color 0.25s ease;
+  transition: color 0.25s ease;
   font-size: 32px;
-  transition: color 0.25s;
 }
 
 main {
@@ -102,7 +105,7 @@ main {
   align-items: center;
   text-align: center;
   flex-direction: column;
-  width: 1300px;
+  max-width: 1300px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 100px;
@@ -112,9 +115,22 @@ main div.main__description {
 }
 main div.home__container {
   text-align: left;
+  width: 100%;
 }
 main div.home__container h1 {
   margin-left: 100px;
+}
+main #search {
+  background-color: #fff;
+  margin-left: 100px;
+  margin-bottom: 30px;
+  margin-right: 20px;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  width: 20%;
+  min-width: 150px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
 main div.card__container {
   display: flex;
@@ -125,58 +141,122 @@ main div.card__container {
   flex-wrap: wrap;
 }
 main div.card {
+  -webkit-transition: transform 0.5s ease;
+  -moz-transition: transform 0.5s ease;
+  -o-transition: transform 0.5s ease;
+  transition: transform 0.5s ease;
   margin: 20px;
   width: 250px;
   height: 100%;
-  transition: transform 0.5s;
-  position: relative;
+  border-radius: 2px;
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 3px -2px rgba(0, 0, 0, 0.2), 0 1px 8px 0 rgba(0, 0, 0, 0.12);
 }
 main div.card:hover {
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -o-transform: scale(1.2);
   transform: scale(1.2);
 }
+main .card__description {
+  position: relative;
+}
 main .fadedbox {
+  -webkit-transition: all 0.25s ease-out;
+  -moz-transition: all 0.25s ease-out;
+  -o-transition: all 0.25s ease-out;
+  transition: all 0.25s ease-out;
   position: absolute;
   background: linear-gradient(to top, #f5f5f5 25%, transparent);
   width: 100%;
   height: 100%;
   opacity: 0;
   top: 0;
-  transition: all 0.25s ease-out;
 }
 main .card:hover .fadedbox,
 main .card:hover .show {
-  opacity: 1;
+  -webkit-transform: translateY(0px);
+  -moz-transform: translateY(0px);
+  -o-transform: translateY(0px);
   transform: translateY(0px);
+  opacity: 1;
 }
 main .show {
+  -webkit-transition: all 0.25s ease-out;
+  -moz-transition: all 0.25s ease-out;
+  -o-transition: all 0.25s ease-out;
   transition: all 0.25s ease-out;
 }
 main img {
   width: 250px;
-  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 3px -2px rgba(0, 0, 0, 0.2), 0 1px 8px 0 rgba(0, 0, 0, 0.12);
 }
-main div.card__text {
+main div.item__text {
+  -webkit-transform: translateY(15px);
+  -moz-transform: translateY(15px);
+  -o-transform: translateY(15px);
+  transform: translateY(15px);
   display: flex;
   align-items: flex-end;
   height: 100%;
   width: 100%;
   padding: 20px;
-  transform: translateY(15px);
 }
-main div.card__text .card__description {
+main div.item__text .item__description {
   width: 100%;
   text-align: left;
 }
-main div.card__text .card__points {
+main div.item__text .item__points {
   width: 100%;
   text-align: right;
 }
-main div.card__text .card__points span {
+main div.item__text .item__points span {
   background-color: #048A81;
   color: #fff;
   border-radius: 4px;
   padding: 5px;
   font-size: 11px;
+}
+main .card__icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  position: relative;
+}
+main .card__icons::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #f5f5f5;
+  position: absolute;
+  top: -11px;
+  right: 13%;
+}
+main .card__icons input {
+  display: none;
+}
+main .card__icons .like__container label {
+  -webkit-transition: color 0.25s ease;
+  -moz-transition: color 0.25s ease;
+  -o-transition: color 0.25s ease;
+  transition: color 0.25s ease;
+  font-size: 20px;
+}
+main .card__icons .like__container label:hover {
+  color: rgba(255, 0, 0, 0.5);
+}
+main .card__icons .basket__container button {
+  -webkit-transition: color 0.25s ease;
+  -moz-transition: color 0.25s ease;
+  -o-transition: color 0.25s ease;
+  transition: color 0.25s ease;
+  font-size: 20px;
+  border: none;
+  background-color: whitesmoke;
+}
+main .card__icons .basket__container button:hover {
+  color: #019875;
 }
 
 /*# sourceMappingURL=style.css.map */

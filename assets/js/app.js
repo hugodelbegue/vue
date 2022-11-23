@@ -29,6 +29,15 @@ const Home = {
     data: () => {
         return {
             itemsList,
+            searchKey: ''
+        }
+    },
+    computed: {
+        filteredList() {
+            return this.itemsList.filter((items) => {
+                console.log(this.searchKey);
+                return items.description.toLowerCase().includes(this.searchKey.toLowerCase());
+            })
         }
     }
 }
@@ -36,11 +45,6 @@ const Home = {
 const Main = {
     template: '<h1>main</h1>',
     name: 'Main',
-    data: () => {
-        return {
-            itemsList,
-        }
-    }
 }
 
 const Likes = {
