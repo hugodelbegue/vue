@@ -1,0 +1,17 @@
+// variables scss
+
+$color__primary: #f5f5f5;
+$color__secondary: #f5f5f5;
+$color__tertiary: #0C2231;
+$color__tertiary__hover: rgba($color__tertiary, .6);
+$color__logo: #048A81;
+
+
+// change of colors
+@if (lightness($color__primary) < 50%) {
+    $color__secondary: darken($color__secondary, 20%);
+    $color__tertiary: lighten($color__tertiary, 20%);
+} @else {
+    $color__secondary: lighten($color__secondary, 20%);
+    $color__tertiary: darken($color__tertiary, 20%);
+}

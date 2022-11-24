@@ -18,7 +18,7 @@ const data = [
 // animation icons cards
 const input = document.querySelectorAll('.like__container').forEach((i) => {
     i.addEventListener('click', (e) => {
-        console.log(e.currentTarget.input)
+        console.log(e.currentTarget)
     })
 })
 

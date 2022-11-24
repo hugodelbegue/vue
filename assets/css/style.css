@@ -59,6 +59,13 @@ table {
   font-weight: bolder;
   margin-bottom: 20px;
 }
+* h1,
+* h2,
+* h3,
+* p,
+* i {
+  color: black;
+}
 
 body {
   background-color: #f5f5f5;
@@ -72,6 +79,7 @@ nav {
   justify-content: space-between;
   padding: 10px 50px;
   width: 100%;
+  background-color: white;
   box-shadow: 0 0.5px 4px -2px #808080;
 }
 nav img {
@@ -85,11 +93,11 @@ nav ul {
   flex-direction: row;
   column-gap: 200px;
 }
-nav ul a {
-  color: #000;
+nav ul i {
+  color: black;
 }
-nav ul a:hover {
-  color: rgba(1, 1, 1, 0.6);
+nav ul i:hover {
+  color: rgba(12, 34, 49, 0.6);
 }
 nav ul i::before {
   -webkit-transition: color 0.25s ease;
@@ -145,6 +153,7 @@ main div.card {
   -moz-transition: transform 0.5s ease;
   -o-transition: transform 0.5s ease;
   transition: transform 0.5s ease;
+  background-color: white;
   margin: 20px;
   width: 250px;
   height: 100%;
@@ -159,6 +168,7 @@ main div.card:hover {
 }
 main .card__description {
   position: relative;
+  background-color: white;
 }
 main .fadedbox {
   -webkit-transition: all 0.25s ease-out;
@@ -166,7 +176,7 @@ main .fadedbox {
   -o-transition: all 0.25s ease-out;
   transition: all 0.25s ease-out;
   position: absolute;
-  background: linear-gradient(to top, #f5f5f5 25%, transparent);
+  background: linear-gradient(to top, white 25%, transparent);
   width: 100%;
   height: 100%;
   opacity: 0;
@@ -221,6 +231,7 @@ main .card__icons {
   align-items: center;
   padding: 15px;
   position: relative;
+  background-color: white;
 }
 main .card__icons::after {
   content: "";
@@ -228,7 +239,7 @@ main .card__icons::after {
   height: 0;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-bottom: 10px solid #f5f5f5;
+  border-bottom: 10px solid white;
   position: absolute;
   top: -11px;
   right: 13%;
@@ -237,25 +248,30 @@ main .card__icons input {
   display: none;
 }
 main .card__icons .like__container label {
+  background-color: white;
+}
+main .card__icons .like__container label i {
   -webkit-transition: color 0.25s ease;
   -moz-transition: color 0.25s ease;
   -o-transition: color 0.25s ease;
   transition: color 0.25s ease;
   font-size: 20px;
 }
-main .card__icons .like__container label:hover {
+main .card__icons .like__container label i:hover {
   color: rgba(255, 0, 0, 0.5);
 }
 main .card__icons .basket__container button {
+  background-color: white;
+  border: none;
+}
+main .card__icons .basket__container button i {
   -webkit-transition: color 0.25s ease;
   -moz-transition: color 0.25s ease;
   -o-transition: color 0.25s ease;
   transition: color 0.25s ease;
   font-size: 20px;
-  border: none;
-  background-color: whitesmoke;
 }
-main .card__icons .basket__container button:hover {
+main .card__icons .basket__container button i:hover {
   color: #019875;
 }
 
