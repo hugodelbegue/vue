@@ -5,7 +5,7 @@
   text-align: center;
 }
 
-@mixin transition($target, $time, $function) {
+@mixin transition($target, $time, $function: ease) {
   -webkit-transition: $target $time $function;
   -moz-transition: $target $time $function;
   -o-transition: $target $time $function;

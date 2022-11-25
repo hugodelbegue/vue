@@ -59,7 +59,11 @@
        <h1>Photos</h1>
 
            <!-- search bar -->
-           <input v-model="searchKey" type="search" id="search" placeholder="Recherches.." autocomplete="off">
+           <input v-model="searchKey"
+                  type="search"
+                  id="search"
+                  placeholder="Recherches.."
+                  autocomplete="off">
            <span v-if="searchKey && filteredList.length >= 1">{{ filteredList.length }} résultat<span v-if="filteredList.length >= 2">s</span></span>
            <span v-if="filteredList.length == []">Aucuns résultats</span>
 
@@ -69,7 +73,8 @@
 
                    <div v-for="items in filteredList" class="card">
                        <div class="card__description">
-                           <img v-bind:src="items.img" alt="">
+                           <img v-bind:src="items.img"
+                                alt="photo de l'objet">
                            <div class="fadedbox">
                                <div class="item__text show">
                                    <div class="item__description">
@@ -77,14 +82,19 @@
                                    </div>
                                    <div class="item__points">
                                        <span>{{ items.points }} pts</span>
-                                   </div>
+                                </div>
                                </div>
                            </div>
                        </div>
 
                        <div class="card__icons">
                            <div class="like__container">
-                               <input v-bind:id="items.id" type="checkbox" name="checkbox__like" >
+                               <input v-bind:id="items.id"
+                                      :value="items.id"
+                                      v-model="liked"
+                                      type="checkbox"
+                                      name="checkbox__like"
+                                      @click="setLikeCookie()">
                                <label v-bind:for="items.id">
                                    <i class="bi bi-heart-fill"></i>
                                </label>
@@ -106,6 +116,7 @@
 
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <script src="https://unpkg.com/vue-router@4.0.15/dist/vue-router.global.js"></script>
+  <script src="https://unpkg.com/vue-cookies@1.8.2/vue-cookies.js"></script>
   <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script> -->
   <script src="assets/js/app.js"></script>
   <script src="assets/js/script.js"></script>

@@ -81,29 +81,13 @@ const data = [
 ];
 
 // animation icons cards
-const input = document.querySelectorAll(".like__container").forEach((i) => {
-  i.addEventListener("click", (e) => {
-    console.log(e.currentTarget);
+inputIcon = document.querySelectorAll(".like__container > input");
+inputIcon.forEach((input) => {
+  input.addEventListener("change", (e) => {
+    if (e.currentTarget.checked == true) {
+      console.log("yessssss");
+    } else if (e.currentTarget.checked == false) {
+      console.log("nooooo");
+    }
   });
 });
-
-const likeIcon = document
-  .querySelectorAll(".like__container > input")
-  .forEach((input) => {
-    input.addEventListener("change", (e) => {
-      if (e.currentTarget.checked === true) {
-        input.style.transition = ".25s";
-        input.style.scale = "1.2";
-        input.style.color = "#FF0000";
-      } else {
-        input.style.transition = ".25s";
-        input.style.scale = "1";
-        input.style.color = "#000";
-      }
-      // input.style.transition = ".15s";
-      // input.style.scale = "1.2";
-      // input.style.color = "#FF0000";
-      // e.stopPropagation();
-      console.log(e.currentTarget.checked);
-    });
-  });
