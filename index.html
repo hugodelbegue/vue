@@ -29,6 +29,7 @@
           <li id="likes">
             <router-link to="/likes">
               <i class="bi bi-heart-fill"></i>
+              <span class="likes__notif"></span>
             </router-link>
           </li>
           <li id="basket">
@@ -89,11 +90,11 @@
 
                        <div class="card__icons">
                            <div class="like__container">
-                               <input v-bind:id="items.id"
+                             <input type="checkbox"
+                                      name="checkbox__like"
+                                      v-bind:id="items.id"
                                       :value="items.id"
                                       v-model="liked"
-                                      type="checkbox"
-                                      name="checkbox__like"
                                       @click="setLikeCookie()">
                                <label v-bind:for="items.id">
                                    <i class="bi bi-heart-fill"></i>

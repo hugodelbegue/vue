@@ -109,11 +109,12 @@ const Home = {
     },
     getLikeCookie() {
         let cookiesValue = JSON.parse($cookies.get('like'));
-        if (cookiesValue == null){
-            this.liked = [];
-        } else {
-            this.likes = cookiesValue;
-        }
+        cookiesValue == null ? this.liked = [] : this.liked = cookiesValue;
+        // if (cookiesValue == null){
+        //     this.liked = [];
+        // } else {
+        //     this.likes = cookiesValue;
+        // }
     }
   },
   methods: {
@@ -122,10 +123,11 @@ const Home = {
             setTimeout(() => {
                 $cookies.set('like', JSON.stringify(this.liked))
             }, 300);
-        })
+        });
     }
   },
   mounted: () => {
+    console.log($cookies.get('like'))
     this.getLikeCookie;
   }
 };
