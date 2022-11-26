@@ -59,6 +59,11 @@ table {
   font-weight: bolder;
   margin-bottom: 20px;
 }
+* h2 {
+  font-size: 20px;
+  font-weight: bolder;
+  margin-bottom: 20px;
+}
 * h1,
 * h2,
 * h3,
@@ -109,8 +114,9 @@ nav ul i::before {
 nav ul li#likes {
   position: relative;
 }
-nav ul .likes__notif {
+nav ul #likes__notif {
   position: absolute;
+  visibility: hidden;
   top: 1px;
   right: -3px;
   width: 10px;
@@ -158,6 +164,11 @@ main #search {
 main #search:focus {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
+main .card__wrap__container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
 main div.card__container {
   display: flex;
   justify-content: center;
@@ -165,6 +176,7 @@ main div.card__container {
   text-align: center;
   align-items: initial;
   flex-wrap: wrap;
+  width: 75%;
 }
 main div.card {
   -webkit-transition: transform 0.5s ease;
@@ -302,6 +314,44 @@ main .card__icons .basket__container button i {
 }
 main .card__icons .basket__container button i:hover {
   color: #019875;
+}
+main .shopping__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  background-color: #048A81;
+  width: 25%;
+  height: auto;
+  padding: 30px;
+  border-radius: 6px;
+  row-gap: 20px;
+}
+main .shopping__container .items__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  align-items: flex-start;
+  text-align: left;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+}
+main .shopping__container .card__img {
+  width: 125px;
+  height: auto;
+  aspect-ratio: 1/1;
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+main .shopping__container .items__text {
+  display: flex;
+  flex-direction: column;
+  height: 125px;
+  justify-content: space-between;
+}
+main .shopping__container #total__points {
+  align-self: flex-end;
 }
 
 /*# sourceMappingURL=style.css.map */
