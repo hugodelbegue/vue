@@ -1,0 +1,10 @@
+// change of colors auto.
+@if (lightness($color__primary) < 50%) {
+    $color__secondary: darken($color__secondary, 20%);
+    $color__tertiary: lighten($color__tertiary, 20%);
+}
+
+@else {
+    $color__secondary: lighten($color__secondary, 20%);
+    $color__tertiary: darken($color__tertiary, 20%);
+}

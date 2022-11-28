@@ -9,17 +9,17 @@ const card = document.querySelectorAll('.basket__container').forEach((cc) => {
       if (bc.value === 'on') {
         bc.value = 'off';
         bc.style.transition = "all .25s";
-        bc.style.transform = "scale(1)"
+        bc.style.transform = "scale(1)";
         bc.querySelectorAll('.bi-cart-fill').forEach((bcf) => {
-          bcf.style.color = "initial"
+          bcf.style.color = "initial";
         })
         // button off
       } else {
         bc.value = 'on';
         bc.style.transition = "all .25s";
-        bc.style.transform = "scale(1.2)"
+        bc.style.transform = "scale(1.2)";
         bc.querySelectorAll('.bi-cart-fill').forEach((bcf) => {
-          bcf.style.color = "#019875"
+          bcf.style.color = "#019875";
         })
       }
     })

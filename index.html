@@ -38,8 +38,9 @@
         </li>
       </ul>
     </nav>
+    
     <main>
-      <!-- main -->
+      <!-- body -->
       <div class="main__description">
         <h1>{{ message }}</h1>
         <p>
@@ -48,6 +49,11 @@
       </div>
       <router-view></router-view>
     </main>
+    <footer>
+      <div class="text__footer">
+        <p>Développé par Hugo Delbegue</p>
+      </div>
+    </footer>
   </div>
 
   <script type="text/x-template" id="home">
@@ -123,7 +129,7 @@
                                       <span class="items__text__description">{{ items.description }}</span>
                                       <span class="items__text__points">{{ items.points * items.quantity }} pts</span>
                                       </div>
-  
+                                      <hr>
                                       <div class="quantity">
                                         <button @click="removeItems(items, id)">
                                           <i class="bi bi-trash3-fill"></i>
