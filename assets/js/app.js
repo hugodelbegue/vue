@@ -1,4 +1,4 @@
-// data
+// datas
 const itemsList = [
   { id: 1, description: "Grenouille Pithecopus hypochondrialis amphibiens", points: 4, img: "./assets/img/grenouille.jpg" },
   { id: 2, description: "Papillon Euploea core", points: 6, img: "./assets/img/papillon.jpg" },
@@ -15,6 +15,7 @@ const itemsList = [
   { id: 13, description: "Tortue de Mer", points: 9, img: "./assets/img/tortue.jpg" }
 ];
 
+// component 'home'
 const Home = {
   template: "#home",
   name: "Home",
@@ -28,6 +29,7 @@ const Home = {
     };
   },
   computed: {
+    // filter in the search bar
     filteredList() {
       return this.itemsList.filter((items) => {
         return items.description
@@ -35,6 +37,7 @@ const Home = {
           .includes(this.searchKey.toLowerCase());
       });
     },
+    // get 'like' cookie
     getLikeCookie() {
       let cookiesValue = JSON.parse($cookies.get('like'));
       cookiesValue == null ? this.liked = [] : this.liked = cookiesValue;
@@ -44,9 +47,10 @@ const Home = {
       //     this.likes = cookiesValue;
       // }
     },
+    // calculates the total of the quantity and points
     totalQuantity() {
       let amountQuantity = 0;
-      for (let item in this.card){
+      for (let item in this.card) {
         amountQuantity = amountQuantity + this.card[item].quantity;
       }
       return amountQuantity;
@@ -60,6 +64,7 @@ const Home = {
     }
   },
   methods: {
+    // adds cookie 'like' to click
     setLikeCookie() {
       document.addEventListener('input', () => {
         setTimeout(() => {
@@ -67,6 +72,7 @@ const Home = {
         }, 300);
       });
     },
+    // add card in the basket
     addToCard(items) {
       for (let i = 0; i < this.card.length; i++) {
         if (this.card[i].id == items.id) {
@@ -82,6 +88,7 @@ const Home = {
       });
       console.log('push')
     },
+    // delete card from the basket
     removeItems(items, id) {
       items.quantity = items.quantity - 1;
       if (items.quantity === 0) {
@@ -89,6 +96,7 @@ const Home = {
       }
     }
   },
+  // add cookie at load 
   mounted: () => {
     console.log($cookies.get('like'))
     this.getLikeCookie;
@@ -121,6 +129,17 @@ const router = VueRouter.createRouter({
   ],
 });
 
+// Instance Vue.js version 3 //
+const app = Vue.createApp({
+  data() {
+    return {
+      message: "Bienvenue sur une interface exemple..",
+    };
+  },
+});
+app.use(router);
+app.mount("#app");
+
 // Router vue 2 //
 // const router = new VueRouter({
 //   routes: [
@@ -130,17 +149,6 @@ const router = VueRouter.createRouter({
 //     { path: "/basket", component: Basket, name: "Basket" },
 //   ],
 // });
-
-// Vue.js version 3 //
-const app = Vue.createApp({
-  data() {
-    return {
-      message: "Instance vue.js version 3",
-    };
-  },
-});
-app.use(router);
-app.mount("#app");
 
 // Vue.js version 2 //
 // const app = new Vue({
