@@ -76,6 +76,23 @@ body {
   background-color: #f5f5f5;
 }
 
+::-webkit-scrollbar {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(198, 198, 198);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
 nav {
   display: flex;
   justify-content: center;
@@ -320,38 +337,142 @@ main .shopping__container {
   justify-content: center;
   align-items: center;
   text-align: center;
+  align-items: flex-start;
   flex-direction: column;
   background-color: #048A81;
-  width: 25%;
+  width: 30%;
   height: auto;
   padding: 30px;
   border-radius: 6px;
   row-gap: 20px;
+  max-height: 59vh;
+}
+main .shopping__container ::-webkit-scrollbar-thumb {
+  display: none;
+}
+main .shopping__container:hover ::-webkit-scrollbar-thumb {
+  background: rgb(198, 198, 198);
+  display: inherit;
+}
+main .shopping__container:hover ::-webkit-scrollbar {
+  width: 5px;
+}
+main .shopping__container .overflow {
+  overflow: overlay;
+  border-top: 3px solid rgba(0, 0, 0, 0.5);
+  border-bottom: 3px solid rgba(0, 0, 0, 0.5);
+  padding: 0 20px;
 }
 main .shopping__container .items__container {
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+  justify-content: flex-start;
   align-items: flex-start;
   text-align: left;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+  border-bottom: 2px solid rgba(198, 198, 198, 0.3);
+  width: 100%;
+  padding: 20px 0;
 }
 main .shopping__container .card__img {
-  width: 125px;
+  width: 100px;
   height: auto;
   aspect-ratio: 1/1;
-  margin-bottom: 20px;
-  margin-right: 20px;
+  margin-right: 15px;
+  border-radius: 40%;
 }
 main .shopping__container .items__text {
   display: flex;
   flex-direction: column;
-  height: 125px;
   justify-content: space-between;
+  width: inherit;
+  min-height: 100px;
 }
-main .shopping__container #total__points {
-  align-self: flex-end;
+main .shopping__container .items__text .text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  align-items: flex-start;
+  flex-direction: column;
+  row-gap: 10px;
+}
+main .shopping__container .items__text .quantity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  justify-content: end;
+  align-items: flex-end;
+  column-gap: 7px;
+}
+main .shopping__container .items__text .items__text__description {
+  font-weight: bold;
+  text-align: left;
+}
+main .shopping__container .items__text .items__text__points {
+  background-color: rgba(255, 255, 255, 0.5);
+  width: fit-content;
+  padding: 5px;
+  border-radius: 5px;
+}
+main .shopping__container .items__text .items__text__quantity {
+  text-align: end;
+  font-size: 13px;
+}
+main .shopping__container .items__text button {
+  background-color: transparent;
+  font-size: 14px;
+  border: none;
+  text-align: end;
+}
+main .shopping__container .items__text button i {
+  color: white;
+}
+main .shopping__container .items__text button i:hover::before {
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  transform: scale(1.2);
+}
+main .shopping__container #total__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+}
+main .shopping__container .total {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  row-gap: 15px;
+}
+main .shopping__container .total .total__points {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+main .animation__cards-enter-active, main .animation__cards-leave-active {
+  transition: all 0.7s cubic-bezier(0.83, 0.35, 0.72, 0.81);
+}
+main .animation__cards-enter-from, main .animation__cards-leave-to {
+  opacity: 0;
+  transform: translateY(700px);
+}
+main .animation__items-enter-active, main .animation__items-leave-active {
+  transition: all 0.25s cubic-bezier(0.83, 0.35, 0.72, 0.81);
+}
+main .animation__items-enter-from, main .animation__items-leave-to {
+  opacity: 0;
+  transform: translateX(-300px);
 }
 
 /*# sourceMappingURL=style.css.map */

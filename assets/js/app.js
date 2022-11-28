@@ -44,8 +44,19 @@ const Home = {
       //     this.likes = cookiesValue;
       // }
     },
-    getTotalPoints() {
-      return console.log('hello');
+    totalQuantity() {
+      let amountQuantity = 0;
+      for (let item in this.card){
+        amountQuantity = amountQuantity + this.card[item].quantity;
+      }
+      return amountQuantity;
+    },
+    totalPointsAmount() {
+      let total = 0;
+      for (let item in this.card) {
+        total = total + (this.card[item].quantity * this.card[item].points);
+      }
+      return total;
     }
   },
   methods: {
@@ -57,8 +68,8 @@ const Home = {
       });
     },
     addToCard(items) {
-      for (let i = 0; i < this.card.length; i++){
-        if (this.card[i].id == items.id){
+      for (let i = 0; i < this.card.length; i++) {
+        if (this.card[i].id == items.id) {
           return this.card[i].quantity++;
         }
       }
@@ -70,6 +81,12 @@ const Home = {
         quantity: 1
       });
       console.log('push')
+    },
+    removeItems(items, id) {
+      items.quantity = items.quantity - 1;
+      if (items.quantity === 0) {
+        delete this.card[id];
+      }
     }
   },
   mounted: () => {

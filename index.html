@@ -12,6 +12,7 @@
 
 <body>
   <div id="app">
+
     <nav>
       <div class="logo">
         <router-link to="/">
@@ -65,69 +66,91 @@
            <span v-if="searchKey && filteredList.length >= 1">{{ filteredList.length }} résultat<span v-if="filteredList.length >= 2">s</span></span>
            <span v-if="filteredList.length == []">Aucuns résultats</span>
 
-           <!-- card -->
-           <div class="card__wrap__container">
-               <div class="card__container">
 
-                   <div v-for="items in filteredList" class="card">
-                       <div class="card__description">
-                           <img v-bind:src="items.img"
-                                alt="photo de l'objet">
-                           <div class="fadedbox">
-                               <div class="item__text show">
-                                   <div class="item__description">
-                                       <p>{{ items.description }}</p>
-                                   </div>
-                                   <div class="item__points">
-                                       <span>{{ items.points }} pts</span>
-                                </div>
-                               </div>
-                           </div>
-                       </div>
+             <div class="card__wrap__container">
 
-                       <div class="card__icons">
-                           <div class="like__container">
-                             <input type="checkbox"
-                                      class="checkbox__state"
-                                      name="checkbox__like"
-                                      v-bind:id="items.id"
-                                      :value="items.id"
-                                      v-model="liked"
-                                      @click="setLikeCookie()">
-                               <label v-bind:for="items.id">
-                                   <i class="bi bi-heart-fill"></i>
-                               </label>
-                           </div>
-
-                           <div class="basket__container">
-                                   <button type="button"
-                                            class="basket__button"
-                                            value="off"
-                                            @click="addToCard(items)"                                            >
-                                       <i class="bi bi-cart-fill"></i>
-                                   </button>
-                           </div>
-                       </div>
-                   </div>
-                  </div>
-                  <!-- items -->
-                  <div v-if="card.length > 0" class="shopping__container">
-                    <h2>Panier</h2>
-                    <div v-for="items in card" class="items__container">
-                      <img v-bind:src="items.img" alt="photos shopping" class="card__img">
-                      <div class="items__text">
-                        <span>{{ items.description }}</span>
-                        <span>{{ items.points * items.quantity }} pts</span>
-                        <div class="items__quantity">Quantité: {{ items.quantity }}</div>
+               <!-- cards -->
+                  <div class="card__container">
+                      <div v-for="items in filteredList" class="card">
+                          <div class="card__description">
+                              <img v-bind:src="items.img"
+                                    alt="photo de l'objet">
+                              <div class="fadedbox">
+                                  <div class="item__text show">
+                                      <div class="item__description">
+                                          <p>{{ items.description }}</p>
+                                      </div>
+                                      <div class="item__points">
+                                          <span>{{ items.points }} pts</span>
+                                    </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="card__icons">
+                              <div class="like__container">
+                                <input type="checkbox"
+                                          class="checkbox__state"
+                                          name="checkbox__like"
+                                          v-bind:id="items.id"
+                                          :value="items.id"
+                                          v-model="liked"
+                                          @click="setLikeCookie()">
+                                  <label v-bind:for="items.id">
+                                      <i class="bi bi-heart-fill"></i>
+                                  </label>
+                              </div>
+                              <div class="basket__container">
+                                      <button type="button"
+                                                class="basket__button"
+                                                value="off"
+                                                @click="addToCard(items)"                                            >
+                                          <i class="bi bi-cart-fill"></i>
+                                      </button>
+                              </div>
+                          </div>
                       </div>
                     </div>
-                    <div id="total__points">Total {{  }}</div>
-       
-                  </div>
-           </div>
 
-       </div>
-    </script>
+                    <Transition name="animation__cards">
+                      <!-- items -->
+                      <div v-if="card.length > 0" class="shopping__container">
+                            <h2>Panier</h2>
+                            <TransitionGroup name="animation__items" tag="div" class="overflow">
+
+                              <div v-for="items, id in card" v-bind:key="items.id" class="items__container">
+  
+                                    <img v-bind:src="items.img" alt="photos shopping" class="card__img">
+  
+                                    <div class="items__text">
+                                      <div class="text">
+                                      <span class="items__text__description">{{ items.description }}</span>
+                                      <span class="items__text__points">{{ items.points * items.quantity }} pts</span>
+                                      </div>
+  
+                                      <div class="quantity">
+                                        <button @click="removeItems(items, id)">
+                                          <i class="bi bi-trash3-fill"></i>
+                                        </button>
+                                          <span class="items__text__quantity">Quantité: {{ items.quantity }}</span>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                </TransitionGroup>
+
+                                  <div id="total__container">Total
+                                    <div class="total">
+                                      <h3>Articles: {{ totalQuantity }}</h3>
+                                      <h3 class="total__points">{{ totalPointsAmount }} pts</h3>
+                                    </div>
+                                  </div>
+
+                            </div>
+                          </Transition>
+
+                  </div>
+            </div>
+        </script>
 </body>
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -137,5 +160,6 @@
 <script src="https://unpkg.com/vue-cookies@1.8.2/vue-cookies.js"></script>
 <script src="assets/js/app.js"></script>
 <script src="assets/js/script.js"></script>
+
 
 </html>

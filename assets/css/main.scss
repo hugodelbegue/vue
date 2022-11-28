@@ -33,6 +33,20 @@ body {
   background-color: $color__primary;
 }
 
+::-webkit-scrollbar {
+  @include transition(all, .5s);
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(198, 198, 198);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
 nav {
   @include position;
   justify-content: space-between;
@@ -269,38 +283,159 @@ main {
 
   .shopping__container {
     @include position;
+    align-items: flex-start;
     flex-direction: column;
     background-color: $color__logo;
-    width: 25%;
+    width: 30%;
     height: auto;
     padding: 30px;
     border-radius: 6px;
     row-gap: 20px;
-    
+    max-height: 59vh;
+
+    ::-webkit-scrollbar-thumb {
+      display: none;
+    }
+
+    &:hover {
+      ::-webkit-scrollbar-thumb {
+        background: rgb(198, 198, 198);
+        display: inherit;
+      }
+
+      ::-webkit-scrollbar {
+        width: 5px;
+      }
+    }
+
+    .overflow {
+      overflow: overlay;
+      border-top: 3px solid rgba(0, 0, 0, 0.5);
+      border-bottom: 3px solid rgba(0, 0, 0, 0.5);
+      padding: 0 20px;
+    }
+
     .items__container {
       @include position;
+      justify-content: flex-start;
       align-items: flex-start;
       text-align: left;
-      border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+      border-bottom: 2px solid rgb(198, 198, 198, .3);
+      width: 100%;
+      padding: 20px 0;
     }
 
     .card__img {
-      width: 125px;
+      width: 100px;
       height: auto;
       aspect-ratio: 1 / 1;
-      margin-bottom: 20px;
-      margin-right: 20px;
+      margin-right: 15px;
+      border-radius: 40%;
     }
 
     .items__text {
       display: flex;
       flex-direction: column;
-      height: 125px;
       justify-content: space-between;
+      width: inherit;
+      min-height: 100px;
+
+      .text {
+        @include position;
+        align-items: flex-start;
+        flex-direction: column;
+        row-gap: 10px;
+      }
+
+      .quantity {
+        @include position;
+        justify-content: end;
+        align-items: flex-end;
+        column-gap: 7px;
+      }
+
+      .items__text__description {
+        font-weight: bold;
+        text-align: left;
+      }
+
+      .items__text__points {
+        background-color: rgba(255, 255, 255, 0.5);
+        width: fit-content;
+        padding: 5px;
+        border-radius: 5px;
+      }
+
+      .items__text__quantity {
+        text-align: end;
+        font-size: 13px;
+      }
+
+      button {
+        background-color: transparent;
+        font-size: 14px;
+        border: none;
+        text-align: end;
+
+        i {
+          color: $color__secondary;
+
+          &:hover::before {
+            @include transition(all, .25s);
+            @include scale(1.2);
+          }
+        }
+      }
     }
 
-    #total__points {
-      align-self: flex-end;
+    #total__container {
+      @include position;
+      align-items: flex-start;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .total {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      row-gap: 15px;
+
+      .total__points {
+        font-size: 20px;
+        font-weight: bold;
+        color: $color__secondary;
+      }
+    }
+  }
+
+  // animation card
+  .animation__cards {
+
+    &-enter-active,
+    &-leave-active {
+      transition: all 0.7s cubic-bezier(.83, .35, .72, .81);
+    }
+
+    &-enter-from,
+    &-leave-to {
+      opacity: 0;
+      transform: translateY(700px);
+    }
+  }
+
+  // animation items
+  .animation__items {
+
+    &-enter-active,
+    &-leave-active {
+      transition: all 0.25s cubic-bezier(.83, .35, .72, .81);
+    }
+
+    &-enter-from,
+    &-leave-to {
+      opacity: 0;
+      transform: translateX(-300px);
     }
   }
 }
