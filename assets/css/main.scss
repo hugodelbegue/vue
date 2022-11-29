@@ -77,6 +77,11 @@ nav {
       font-size: 32px;
     }
 
+    li#main, li#basket {
+      pointer-events: none;
+      // opacity: 0.4;
+    }
+
     li#likes {
       position: relative;
     }

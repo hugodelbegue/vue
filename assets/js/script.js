@@ -17,7 +17,7 @@ const card = document.querySelectorAll('.basket__container').forEach((cc) => {
       } else {
         bc.value = 'on';
         bc.style.transition = "all .25s";
-        bc.style.transform = "scale(1.2)";
+        bc.style.transform = "scale(1.3)";
         bc.querySelectorAll('.bi-cart-fill').forEach((bcf) => {
           bcf.style.color = "#019875";
         })

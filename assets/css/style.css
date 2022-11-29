@@ -119,7 +119,7 @@ nav ul i {
   color: black;
 }
 nav ul i:hover {
-  color: rgba(12, 34, 49, 0.6);
+  color: rgba(7, 41, 11, 0.6);
 }
 nav ul i::before {
   -webkit-transition: color 0.25s ease;
@@ -127,6 +127,9 @@ nav ul i::before {
   -o-transition: color 0.25s ease;
   transition: color 0.25s ease;
   font-size: 32px;
+}
+nav ul li#main, nav ul li#basket {
+  pointer-events: none;
 }
 nav ul li#likes {
   position: relative;

@@ -1,18 +1,18 @@
 // datas
 const itemsList = [
-  { id: 1, description: "Grenouille Pithecopus hypochondrialis amphibiens", points: 4, img: "./assets/img/grenouille.jpg" },
-  { id: 2, description: "Papillon Euploea core", points: 6, img: "./assets/img/papillon.jpg" },
-  { id: 3, description: "Fleur Marguerite Mauve africaine", points: 3, img: "./assets/img/marguerite.jpg" },
-  { id: 4, description: "Grand Coquillage de mer", points: 12, img: "./assets/img/coquillage.jpg" },
-  { id: 5, description: "Champignon de Foret d'automne", points: 15, img: "./assets/img/champignon.jpg" },
-  { id: 6, description: "Koala d'Australie", points: 7, img: "./assets/img/koala.jpg" },
-  { id: 7, description: "Fleur Strelitzia", points: 13, img: "./assets/img/strelitzia.jpg" },
-  { id: 8, description: "Oiseau qui vole", points: 5, img: "./assets/img/oiseau.jpg" },
-  { id: 9, description: "Escargot dans sa coquille", points: 16, img: "./assets/img/escargot.jpg" },
-  { id: 10, description: "Goutte d'eau qui tombe", points: 21, img: "./assets/img/goutte.jpg" },
-  { id: 11, description: "Coccinelles Rouge", points: 18, img: "./assets/img/coccinelles.jpg" },
-  { id: 12, description: "Herisson des Forets", points: 11, img: "./assets/img/herisson.jpg" },
-  { id: 13, description: "Tortue de Mer", points: 9, img: "./assets/img/tortue.jpg" }
+  { id: 1, description: "Aloe Vera", points: 4.99, img: "./assets/img/aloe-vera.jpg" },
+  { id: 2, description: "Smycka", points: 17.99, img: "./assets/img/smycka.jpg" },
+  { id: 3, description: "Dracaena Marginata", points: 14.99, img: "./assets/img/dracaena-marginata.jpg" },
+  { id: 4, description: "Anthurium", points: 29.99, img: "./assets/img/anthurium.jpg" },
+  { id: 5, description: "Epipremnum", points: 3.49, img: "./assets/img/epipremnum.jpg" },
+  { id: 6, description: "Euphorbia Acrurensis", points: 39.99, img: "./assets/img/euphorbia-acrurensis.jpg" },
+  { id: 7, description: "Fejka", points: 24.99, img: "./assets/img/fejka.jpg" },
+  { id: 8, description: "Ficus", points: 16.99, img: "./assets/img/ficus.jpg" },
+  { id: 9, description: "Monstera", points: 15.99, img: "./assets/img/monstera.jpg" },
+  { id: 10, description: "Polyscias", points: 25.99, img: "./assets/img/polyscias.jpg" },
+  { id: 11, description: "Schefflera Arboricola", points: 19.99, img: "./assets/img/schefflera-arboricola.jpg" },
+  { id: 12, description: "Spathiphyllum", points: 12.99, img: "./assets/img/spathiphyllum.jpg" },
+  { id: 13, description: "Succulent", points: 4.59, img: "./assets/img/succulent.jpg" }
 ];
 
 // component 'home'
@@ -59,6 +59,8 @@ const Home = {
       let total = 0;
       for (let item in this.card) {
         total = total + (this.card[item].quantity * this.card[item].points);
+        // rounded result 
+        total = Math.round(total * 100) / 100;
       }
       return total;
     }
@@ -96,7 +98,7 @@ const Home = {
       }
     }
   },
-  // add cookie at load 
+  // add cookie at loading the page
   mounted: () => {
     console.log($cookies.get('like'))
     this.getLikeCookie;
