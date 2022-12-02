@@ -1,30 +1,32 @@
 // animation of the basket button //
-// get container button
-const card = document.querySelectorAll('.basket__container').forEach((cc) => {
-  // get button
-  cc.querySelectorAll('.basket__button').forEach((bc) => {
-    bc.addEventListener('click', () => {
-      // set the properties on click
-      // button on
-      if (bc.value === 'on') {
-        bc.value = 'off';
-        bc.style.transition = "all .25s";
-        bc.style.transform = "scale(1)";
-        bc.querySelectorAll('.bi-cart-fill').forEach((bcf) => {
-          bcf.style.color = "initial";
-        })
-        // button off
-      } else {
-        bc.value = 'on';
-        bc.style.transition = "all .25s";
-        bc.style.transform = "scale(1.3)";
-        bc.querySelectorAll('.bi-cart-fill').forEach((bcf) => {
-          bcf.style.color = "#019875";
-        })
-      }
-    })
-  });
-});
+const basket = document.getElementById('basketIcon');
+const card = document.querySelectorAll('.basket__button');
+
+// check card value
+const cardCheck = () => {
+  for (let i = 0; i < card.length; i++) {
+    if (card[i].value == 'on') {
+      return true;
+    }
+  }
+  return false;
+}
+
+// set the color button
+const setBasket = () => {
+  if (cardCheck()) {
+    // button on
+    basket.style.color = "#019875";
+  } else {
+    // button off
+    basket.style.color = "initial";
+  }
+}
+
+// set the properties on click
+document.addEventListener('click', setBasket);
+
+
 
 // animation of the likes notif //
 let input = document.querySelectorAll(".checkbox__state")

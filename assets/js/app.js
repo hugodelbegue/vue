@@ -39,12 +39,25 @@ const Home = {
     },
     // get 'like' cookie
     getLikeCookie() {
-      let cookiesValue = JSON.parse($cookies.get('like'));
-      cookiesValue == null ? this.liked = [] : this.liked = cookiesValue;
+      try {
+        let cookiesValue = JSON.parse($cookies.get('like'));
+        // cookiesValue == null ? this.liked = [] : this.liked = cookiesValue;
+        if (cookiesValue == null) {
+          console.log('cookies null')
+          this.liked = [];
+        } else {
+          console.log('cookies array')
+          this.liked = cookiesValue;
+        }
+      } catch (error) {
+        console.log(error);
+        console.log($cookies.get('like'))
+        console.log(cookiesValue)
+      }
       // if (cookiesValue == null){
       //     this.liked = [];
       // } else {
-      //     this.likes = cookiesValue;
+      //     this.liked = cookiesValue;
       // }
     },
     // calculates the total of the quantity and points
@@ -59,11 +72,19 @@ const Home = {
       let total = 0;
       for (let item in this.card) {
         total = total + (this.card[item].quantity * this.card[item].points);
-        // rounded result 
-        total = Math.round(total * 100) / 100;
+        total = this.roundedResult(total);
       }
       return total;
-    }
+    },
+    // set the value of button
+    changeColorButton() {
+      for (let item in this.card) {
+        if (this.card[item]) {
+          return 'on';
+        }
+      }
+      return 'off';
+    },
   },
   methods: {
     // adds cookie 'like' to click
@@ -88,19 +109,24 @@ const Home = {
         img: items.img,
         quantity: 1
       });
-      console.log('push')
     },
     // delete card from the basket
     removeItems(items, id) {
       items.quantity = items.quantity - 1;
       if (items.quantity === 0) {
-        delete this.card[id];
+        if (this.card[id] === undefined) { return }
+        this.card.splice(id, 1);
+        // delete this.card[id];
       }
+    },
+    // rounded result 
+    roundedResult(result) {
+      result = Math.round(result * 100) / 100;
+      return result;
     }
   },
   // add cookie at loading the page
   mounted: () => {
-    console.log($cookies.get('like'))
     this.getLikeCookie;
   }
 };
@@ -128,6 +154,7 @@ const router = VueRouter.createRouter({
     { path: "/main", component: Main, name: "Main" },
     { path: "/likes", component: Likes, name: "Likes" },
     { path: "/basket", component: Basket, name: "Basket" },
+    { path: "/:pathMatch()*", redirect: "/" }
   ],
 });
 
@@ -142,22 +169,4 @@ const app = Vue.createApp({
 app.use(router);
 app.mount("#app");
 
-// Router vue 2 //
-// const router = new VueRouter({
-//   routes: [
-//     { path: "/", component: Home, name: "Home" },
-//     { path: "/main", component: Main, name: "Main" },
-//     { path: "/likes", component: Likes, name: "Likes" },
-//     { path: "/basket", component: Basket, name: "Basket" },
-//   ],
-// });
-
-// Vue.js version 2 //
-// const app = new Vue({
-//     el: '#app',
-//     data: {
-//         message: 'Instance vue.js version 2',
-//     },
-//     router
-// });
 

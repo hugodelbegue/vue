@@ -77,7 +77,8 @@ nav {
       font-size: 32px;
     }
 
-    li#main, li#basket {
+    li#main,
+    li#basket {
       pointer-events: none;
       // opacity: 0.4;
     }
@@ -269,8 +270,13 @@ main {
 
     .basket__container {
       button {
+        @include transition(transform, 0.25s);
         background-color: $color__secondary;
         border: none;
+
+        &:hover {
+          @include scale(1.3);
+        }
 
         i {
           @include transition(color, 0.25s);
@@ -416,6 +422,20 @@ main {
       }
     }
   }
+
+  // animation button
+  // .animation__button {
+
+  //   &-enter-active,
+  //   &-leave-active {
+  //     transition: all 0.25s ease;
+  //   }
+
+  //   &-enter-from,
+  //   &-leave-to {
+  //     color: red;
+  //   }
+  // }
 
   // animation card
   .animation__cards {

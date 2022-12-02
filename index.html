@@ -16,29 +16,30 @@
     <!-- menu -->
     <nav>
       <div class="logo">
-        <router-link to="/">
+        <router-link :to="{name: 'Home'}">
           <img src="./assets/img/logo_vue.svg" alt="logo du site" />
         </router-link>
       </div>
       <ul>
         <li id="main">
-          <router-link to="/main">
+          <router-link :to="{name: 'Main'}">
             <i class="bi bi-binoculars-fill"></i>
           </router-link>
         </li>
         <li id="likes">
-          <router-link to="/likes">
+          <router-link :to="{name: 'Likes'}">
             <i class="bi bi-heart-fill"></i>
             <span id="likes__notif"></span>
           </router-link>
         </li>
         <li id="basket">
-          <router-link to="/basket"><i class="bi bi-cart-fill"></i>
+          <router-link :to="{name: 'Basket'}">
+            <i id="basketIcon" class="bi bi-cart-fill"></i>
           </router-link>
         </li>
       </ul>
     </nav>
-    
+
     <main>
       <!-- body -->
       <div class="main__description">
@@ -58,7 +59,7 @@
 
   <script type="text/x-template" id="home">
       <div class="home__container">
-       <h1>Photos</h1>
+       <h1>Articles</h1>
 
            <!-- search bar -->
            <input v-model="searchKey"
@@ -74,7 +75,7 @@
 
                <!-- cards -->
                   <div class="card__container">
-                      <div v-for="items in filteredList" class="card">
+                      <div v-for="(items, id) in filteredList" class="card">
                           <div class="card__description">
                               <img v-bind:src="items.img"
                                     alt="photo de l'objet">
@@ -91,6 +92,7 @@
                           </div>
                           <div class="card__icons">
                               <div class="like__container">
+                                <!-- like button -->
                                 <input type="checkbox"
                                           class="checkbox__state"
                                           name="checkbox__like"
@@ -103,10 +105,11 @@
                                   </label>
                               </div>
                               <div class="basket__container">
+                                <!-- basket button -->
                                       <button type="button"
                                                 class="basket__button"
-                                                value="off"
-                                                @click="addToCard(items)"                                            >
+                                                :value="changeColorButton"
+                                                @click="addToCard(items)">
                                           <i class="bi bi-cart-fill"></i>
                                       </button>
                               </div>
@@ -120,14 +123,14 @@
                             <h2>Panier</h2>
                             <TransitionGroup name="animation__items" tag="div" class="overflow">
 
-                              <div v-for="items, id in card" v-bind:key="items.id" class="items__container">
+                              <div v-for="(items, id) in card" v-bind:key="items.id" class="items__container">
   
                                     <img v-bind:src="items.img" alt="photos shopping" class="card__img">
   
                                     <div class="items__text">
                                       <div class="text">
                                       <span class="items__text__description">{{ items.description }}</span>
-                                      <span class="items__text__points">{{ items.points * items.quantity }} €</span>
+                                      <span class="items__text__points">{{ roundedResult(items.points * items.quantity) }} €</span>
                                       </div>
                                       <hr>
                                       <div class="quantity">
@@ -149,7 +152,7 @@
                                   </div>
 
                             </div>
-                          </Transition>
+                      </Transition>
 
                   </div>
             </div>
@@ -157,9 +160,7 @@
 </body>
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script> -->
 <script src="https://unpkg.com/vue-router@4.0.15/dist/vue-router.global.js"></script>
-<!-- <script src="https://unpkg.com/vue-router@3.0.0/dist/vue-router.js"></script> -->
 <script src="https://unpkg.com/vue-cookies@1.8.2/vue-cookies.js"></script>
 <script src="assets/js/app.js"></script>
 <script src="assets/js/script.js"></script>
