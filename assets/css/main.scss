@@ -78,6 +78,7 @@ nav {
     }
 
     li#main,
+    li#likes,
     li#basket {
       pointer-events: none;
       // opacity: 0.4;
@@ -140,7 +141,7 @@ main {
 
   .card__wrap__container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: flex-start;
   }
 
@@ -322,6 +323,7 @@ main {
       border-top: 3px solid rgba(0, 0, 0, 0.5);
       border-bottom: 3px solid rgba(0, 0, 0, 0.5);
       padding: 0 20px;
+      width: 100%;
     }
 
     .items__container {
@@ -422,20 +424,6 @@ main {
       }
     }
   }
-
-  // animation button
-  // .animation__button {
-
-  //   &-enter-active,
-  //   &-leave-active {
-  //     transition: all 0.25s ease;
-  //   }
-
-  //   &-enter-from,
-  //   &-leave-to {
-  //     color: red;
-  //   }
-  // }
 
   // animation card
   .animation__cards {

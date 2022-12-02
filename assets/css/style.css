@@ -129,6 +129,7 @@ nav ul i::before {
   font-size: 32px;
 }
 nav ul li#main,
+nav ul li#likes,
 nav ul li#basket {
   pointer-events: none;
 }
@@ -185,7 +186,7 @@ main #search:focus {
 }
 main .card__wrap__container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: flex-start;
 }
 main div.card__container {
@@ -374,6 +375,7 @@ main .shopping__container .overflow {
   border-top: 3px solid rgba(0, 0, 0, 0.5);
   border-bottom: 3px solid rgba(0, 0, 0, 0.5);
   padding: 0 20px;
+  width: 100%;
 }
 main .shopping__container .items__container {
   display: flex;
