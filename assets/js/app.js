@@ -84,7 +84,7 @@ const Home = {
         }
       }
       return 'off';
-    },
+    }
   },
   methods: {
     // adds cookie 'like' to click
