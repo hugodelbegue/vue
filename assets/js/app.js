@@ -40,7 +40,8 @@ const Home = {
     // get 'like' cookie
     getLikeCookie() {
       try {
-        let cookiesValue = JSON.parse($cookies.get('like'));
+        // let cookiesValue = JSON.parse($cookies.get('like'));
+        let cookiesValue = JSON.parse(localStorage.getItem('like'));
         // cookiesValue == null ? this.liked = [] : this.liked = cookiesValue;
         if (cookiesValue == null) {
           console.log('cookies null')
@@ -51,7 +52,8 @@ const Home = {
         }
       } catch (error) {
         console.log(error);
-        console.log($cookies.get('like'))
+        // console.log($cookies.get('like'))
+        console.log(localStorage.getItem('like'))
         console.log(cookiesValue)
       }
       // if (cookiesValue == null){
@@ -91,7 +93,8 @@ const Home = {
     setLikeCookie() {
       document.addEventListener('input', () => {
         setTimeout(() => {
-          $cookies.set('like', JSON.stringify(this.liked))
+          // $cookies.set('like', JSON.stringify(this.liked));
+          localStorage.setItem('like', JSON.stringify(this.liked));
         }, 300);
       });
     },
@@ -168,5 +171,3 @@ const app = Vue.createApp({
 });
 app.use(router);
 app.mount("#app");
-
-
