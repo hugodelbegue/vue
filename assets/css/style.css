@@ -188,6 +188,7 @@ main .card__wrap__container {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  padding: 0 2rem;
 }
 main div.card__container {
   display: flex;
