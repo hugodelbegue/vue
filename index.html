@@ -119,8 +119,12 @@
 
                     <Transition name="animation__cards">
                       <!-- items -->
-                      <div v-if="card.length > 0" class="shopping__container">
+                      <div v-if="card.length > 0" class="shopping__container" id="popup">
+                        <div class="shopping__header">
                             <h2>Panier</h2>
+                            <button @click="hiddenPopup"><</button>
+                            <button @click="showPopup" class="button__open">></button>
+                        </div>
                             <TransitionGroup name="animation__items" tag="div" class="overflow">
 
                               <div v-for="(items, id) in card" v-bind:key="items.id" class="items__container">

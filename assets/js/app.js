@@ -122,6 +122,18 @@ const Home = {
         // delete this.card[id];
       }
     },
+    showPopup() {
+      const pop = document.querySelector('#popup');
+      const button = document.querySelector('.button__open');
+      button.style.display = "none";
+      pop.style.transform = 'translateX(-90%)' ? pop.style.transform = 'translateX(0%)' : null
+    },
+    hiddenPopup() {
+      const pop = document.querySelector('#popup');
+      const button = document.querySelector('.button__open');
+      pop.style.transform = 'translateX(-90%)';
+      button.style.display = "flex";
+    },
     // rounded result 
     roundedResult(result) {
       result = Math.round(result * 100) / 100;

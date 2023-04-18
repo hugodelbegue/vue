@@ -72,6 +72,10 @@ table {
   color: black;
 }
 
+i {
+  cursor: pointer;
+}
+
 body {
   background-color: #f5f5f5;
 }
@@ -104,8 +108,18 @@ nav {
   background-color: white;
   box-shadow: 0 0.5px 4px -2px #808080;
 }
+@media only screen and (max-width: 620px) {
+  nav {
+    padding: 10px;
+  }
+}
 nav img {
   width: 75px;
+}
+@media only screen and (max-width: 620px) {
+  nav img {
+    width: 50px;
+  }
 }
 nav ul {
   display: flex;
@@ -115,8 +129,23 @@ nav ul {
   flex-direction: row;
   column-gap: 200px;
 }
+@media only screen and (max-width: 720px) {
+  nav ul {
+    column-gap: 100px;
+  }
+}
+@media only screen and (max-width: 620px) {
+  nav ul {
+    column-gap: 50px;
+  }
+}
 nav ul i {
   color: black;
+}
+@media only screen and (max-width: 620px) {
+  nav ul i::before {
+    font-size: 1.5rem !important;
+  }
 }
 nav ul i:hover {
   color: rgba(7, 41, 11, 0.6);
@@ -158,6 +187,7 @@ main {
 }
 main div.main__description {
   margin-bottom: 100px;
+  padding: 0 2rem;
 }
 main div.home__container {
   text-align: left;
@@ -188,7 +218,7 @@ main .card__wrap__container {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 0 2rem;
+  padding: 0 1rem;
 }
 main div.card__container {
   display: flex;
@@ -198,6 +228,11 @@ main div.card__container {
   align-items: initial;
   flex-wrap: wrap;
   width: 75%;
+}
+@media only screen and (max-width: 720px) {
+  main div.card__container {
+    width: 100%;
+  }
 }
 main div.card {
   -webkit-transition: transform 0.5s ease;
@@ -361,6 +396,17 @@ main .shopping__container {
   row-gap: 20px;
   max-height: 59vh;
 }
+@media only screen and (max-width: 620px) {
+  main .shopping__container {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: auto;
+    margin-bottom: 1rem;
+    row-gap: 6px;
+    max-height: 50vh;
+  }
+}
 main .shopping__container ::-webkit-scrollbar-thumb {
   display: none;
 }
@@ -370,6 +416,27 @@ main .shopping__container:hover ::-webkit-scrollbar-thumb {
 }
 main .shopping__container:hover ::-webkit-scrollbar {
   width: 5px;
+}
+main .shopping__container .shopping__header {
+  width: 100%;
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+}
+main .shopping__container .shopping__header button {
+  border-radius: 25%;
+  width: 1rem;
+  height: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+main .shopping__container .shopping__header button.button__open {
+  position: absolute;
+  top: 2rem;
+  right: 0;
+  display: none;
 }
 main .shopping__container .overflow {
   overflow: overlay;
@@ -390,12 +457,35 @@ main .shopping__container .items__container {
   width: 100%;
   padding: 20px 0;
 }
+@media only screen and (max-width: 1024px) {
+  main .shopping__container .items__container {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+@media only screen and (max-width: 620px) {
+  main .shopping__container .items__container {
+    flex-wrap: initial;
+  }
+}
 main .shopping__container .card__img {
   width: 100px;
   height: auto;
   aspect-ratio: 1/1;
   margin-right: 15px;
   border-radius: 40%;
+}
+@media only screen and (max-width: 1024px) {
+  main .shopping__container .card__img {
+    margin-right: 0;
+  }
+}
+@media only screen and (max-width: 620px) {
+  main .shopping__container .card__img {
+    display: none;
+  }
 }
 main .shopping__container .items__text {
   display: flex;
@@ -411,6 +501,16 @@ main .shopping__container .items__text .text {
   align-items: flex-start;
   flex-direction: column;
   row-gap: 10px;
+}
+@media only screen and (max-width: 1024px) {
+  main .shopping__container .items__text .text {
+    align-items: center;
+  }
+}
+@media only screen and (max-width: 620px) {
+  main .shopping__container .items__text .text {
+    align-items: flex-start;
+  }
 }
 main .shopping__container .items__text hr {
   width: 100%;
@@ -429,6 +529,11 @@ main .shopping__container .items__text .quantity {
 main .shopping__container .items__text .items__text__description {
   font-weight: bold;
   text-align: left;
+}
+@media only screen and (max-width: 1024px) {
+  main .shopping__container .items__text .items__text__description {
+    text-align: center;
+  }
 }
 main .shopping__container .items__text .items__text__points {
   background-color: rgba(255, 255, 255, 0.5);
